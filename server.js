@@ -1,7 +1,10 @@
 const express=require('express');
 const bodyParser=require('body-parser');
+const cors=require('cors');
 const app=express();
 app.use(bodyParser.json());
+app.use(cors());
+
 
 const database={
     users:[
@@ -9,7 +12,7 @@ const database={
             id:'123',
             name:'dimple',
             email:'dimple@gmail.com',
-            password:'i_hate_you',
+            password:'dimple',
             entries:0,
             joined:new Date()
         },
@@ -38,7 +41,6 @@ app.post('/register',(req,res)=>{
         id:'125',
         name:name,
         email:email,
-        password:password,
         entries:0,
         joined:new Date()
     })
@@ -58,7 +60,7 @@ app.get('/profile/:id',(req,res)=>{
     }
 })
 
-app.post('/image',(req,res)=>{
+app.put('/image',(req,res)=>{
     const {id}=req.body;
     let found =false;
     database.users.forEach(user=>{
