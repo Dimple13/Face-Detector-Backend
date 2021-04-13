@@ -17,10 +17,8 @@ app.use(cors());
 const db = knex({
     client: 'pg',
     connection: {
-      host : 'postgresql-dimensional-91227',
-      user : 'postgres',
-      password : 'root',
-      database : 'smartbrain'
+      host : process.env.DATABASE_URL,
+      ssl:true,
     }
 });
 
