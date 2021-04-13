@@ -9,7 +9,6 @@ const profile=require('./controllers/profile');
 const image=require('./controllers/image');
 
 const app=express();
-
 app.use(bodyParser.json());
 app.use(cors());
 
